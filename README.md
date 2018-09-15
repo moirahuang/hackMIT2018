@@ -1,12 +1,26 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Image-Caption-Generator-Web-App.svg?branch=master)](https://travis-ci.org/IBM/MAX-Image-Caption-Generator-Web-App)
 
-# Create a web app to interact with machine learning generated image captions
+# HackMIT 2018 Project: Building an Interactive Photo-Captioning Web App
 
-Every day 2.5 quintillion bytes of data are created, based on an
-[IBM study](https://public.dhe.ibm.com/common/ssi/ecm/wr/en/wrl12345usen/watson-customer-engagement-watson-marketing-wr-other-papers-and-reports-wrl12345usen-20170719.pdf).
-A lot of that data is unstructured data, such as large texts, audio recordings, and images. In order to do something
-useful with the data, we must first convert it to structured data.
+Moira Huang, Sarah Lincoln, Thomas Tay, Alice Wu 
 
+Technology connects people from across the globe. As the world becomes increasingly 
+globalized, building intuitive, accessible, and useful software is becoming more and 
+more important in our roles as technologists and computer scientists.  We come 
+together this weekend at HackMIT to bridge the language gap in American social media 
+posts. 
+
+Using a Code Pattern provided by IBM and described below, we have created an 
+interactive web app that allows users to select photos from their Google Drive that they 
+want to caption. 
+
+This program utilizes machine learning to analyze photos and create relevant captions to 
+accompany those photos.
+
+Programs such as ours work toward promoting inclusive online spaces by encouraging 
+people to share their lives, regardless of their English language ability. 
+
+# IBM Project Summary [Reference]
 In this Code Pattern we will use one of the models from the
 [Model Asset Exchange (MAX)](https://developer.ibm.com/code/exchanges/models/),
 an exchange where developers can find and experiment with open source deep learning
