@@ -19,7 +19,7 @@ limitations under the License.
 
 <head>
 
-    <title>MAX Image Caption Generator</title>
+    <title>Facebook Profile Cloud Generator</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico"/>
 
@@ -41,6 +41,35 @@ limitations under the License.
 </head>
 
 <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=432649987258391&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '432649987258391',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.1'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
     <div class="container-fluid ibm-code">
 
@@ -48,14 +77,14 @@ limitations under the License.
 
             <div class="col-md-7">
 
-                <div id="codait-logo" class="col-md-3">
-                    <img src="static/img/codait-logo.jpg"/>
+                <div id="fb-logo" class="col-md-3">
+                    <img src="static/img/fblogo.png"/>
                 </div>
 
                 <div class="col-md-4 title-section">
-                    <h1>MAX Image Caption Generator</h1>
+                    <h1>Facebook Profile Cloud Generator</h1>
                 </div>
-
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
                 <div class="col-md-5">
 
