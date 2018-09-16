@@ -25,6 +25,7 @@ import requests
 import signal
 import time
 import threading
+import shutil
 import uuid
 from tornado import escape, httpserver, ioloop, web
 from tornado.options import define, options, parse_command_line
@@ -282,7 +283,12 @@ def make_app():
     }
 
     return web.Application(handlers, **configs)
-
+def downloadImage(url):
+    response = requests.get(url, stream=True)
+    with open('img.png', 'wb') as out_file:
+        shutil.copyfileobj(response.raw, out_file)
+    console.log(response)
+    del response
 
 def main():
     parse_command_line()

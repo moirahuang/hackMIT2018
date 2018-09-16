@@ -1,12 +1,38 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Image-Caption-Generator-Web-App.svg?branch=master)](https://travis-ci.org/IBM/MAX-Image-Caption-Generator-Web-App)
 
-# Create a web app to interact with machine learning generated image captions
+# HackMIT 2018 Project: Building an Interactive Photo-Captioning Web App
 
-Every day 2.5 quintillion bytes of data are created, based on an
-[IBM study](https://public.dhe.ibm.com/common/ssi/ecm/wr/en/wrl12345usen/watson-customer-engagement-watson-marketing-wr-other-papers-and-reports-wrl12345usen-20170719.pdf).
-A lot of that data is unstructured data, such as large texts, audio recordings, and images. In order to do something
-useful with the data, we must first convert it to structured data.
+Moira Huang, Sarah Lincoln, Thomas Tay, Alice Wu 
 
+Technology connects people from across the globe. As the world becomes increasingly 
+globalized, building intuitive, accessible, and useful software is becoming more and more important.
+
+Each member of our team has different skillsets and experience levels. 
+In the beginning, we brainstormed different projects that we could work 
+on. We considered web and mobile apps before deciding to collaborate
+on a web app. Because HTML and Python are more approachable for beginners,
+we thought that it would be a good project for everyone to work on. 
+
+As we were brainstorming, we received mentoring from an IBM representative. 
+She suggested that we look at IBM Code Patterns, which are interactive
+project templates that users can customize. After considering a few,
+we decided to work on a web app that generates captions for user-uploaded
+photos.
+
+We started by working on the app interface, coding in HTML and JavaScript. 
+After modifying the UI, we needed to find a source for the photos. 
+To do this, we searched for APIs provided by Google, Microsoft, Facebook, and IBM. We first tried integrating Facebook login, but had to abandon that idea because of access permission problems. We then decided to use the Google Photos API to access pictures in Google Drive.
+
+The server of this project is written in Python, and we added features to the server to process data retrieved by the client.
+
+We decided on an interactive web app that allows users to select photos from their Google Drive that they want to caption.
+
+This program utilizes machine learning to analyze photos and create relevant captions that describe the contents of the photos.
+
+Programs such as ours work toward promoting inclusive online spaces by encouraging 
+people to share their lives, regardless of their English language ability. 
+
+# IBM Project Summary [Reference]
 In this Code Pattern we will use one of the models from the
 [Model Asset Exchange (MAX)](https://developer.ibm.com/code/exchanges/models/),
 an exchange where developers can find and experiment with open source deep learning
