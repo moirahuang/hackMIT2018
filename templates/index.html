@@ -30,7 +30,7 @@ limitations under the License.
         var clientId = '150271253834-cs3pj818pp6cjo7ltgnh2gj1lar89981.apps.googleusercontent.com';
     
         // Scope to use to access user's photos.
-        var scope = 'https://www.googleapis.com/auth/photos';
+        var scope = 'https://www.googleapis.com/auth/drive.readonly';
     
         var pickerApiLoaded = false;
         var oauthToken;
@@ -68,7 +68,7 @@ limitations under the License.
         function createPicker() {
             if (pickerApiLoaded && oauthToken) {
             var picker = new google.picker.PickerBuilder().
-                addView(google.picker.ViewId.PHOTOS).
+                addView(google.picker.ViewId.DOCS_IMAGES).
                 setOAuthToken(oauthToken).
                 setDeveloperKey(developerKey).
                 setCallback(pickerCallback).
@@ -77,15 +77,43 @@ limitations under the License.
             }
         }
     
-        // A simple callback implementation.
+        //Modified pickerCallback to download files
         function pickerCallback(data) {
             var url = 'nothing';
+            var id = "";
             if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
-            var doc = data[google.picker.Response.DOCUMENTS][0];
-            url = doc[google.picker.Document.URL];
+                var doc = data[google.picker.Response.DOCUMENTS][0];
+                url = doc[google.picker.Document.URL];
+                console.log(doc);
+                id = doc[google.picker.Document.ID];
             }
-            var message = 'You picked: ' + url;
+            var message = 'You picked: ' + id;
             document.getElementById('result').innerHTML = message;
+            download(id);
+        }
+
+        function download(id){
+            $.get({
+                url: "https://www.googleapis.com/drive/v3/files/" + id,
+                dataType: "json",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", "Bearer " +
+                        oauthToken);
+                      },
+                success: function(data) {
+                    //Download the file to the local machine
+                    console.log(data);
+                },
+                error: function(jqXHR, status, error) {
+                    if (jqXHR.status == 400) {
+                        alert("Google Drive file not valid");
+                    } else if (jqXHR.status == 404) {
+                        alert("Cannot connect to Google API server");
+                    } else {
+                        console.log("Oops.");
+                    }
+                }
+            })
         }
     </script>
 

@@ -10,3 +10,8 @@ __pycache__/
 
 # Web App
 static/img/images/MAX-*
+
+*.swp
+*.o
+*.pdf
+tags
